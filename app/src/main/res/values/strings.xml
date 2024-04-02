@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Assessment</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="copiright">\nAplikasi ini dibuat untuk kelas MobPro 1.
+        \n\nCopyright © 2024 Dzaki Alwan Firjatullah\nAll rights reserved.</string>
+    <string name="kembali">Kembali</string>
 </resources>

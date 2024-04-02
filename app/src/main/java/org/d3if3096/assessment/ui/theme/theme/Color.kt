@@ -1,4 +1,4 @@
-package org.d3if3096.assessment.ui.theme
+package org.d3if3096.assessment.ui.theme.theme
 
 import androidx.compose.ui.graphics.Color
 
