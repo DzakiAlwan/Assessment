@@ -1,4 +1,4 @@
-package org.d3if3096.assessment.ui.theme.screen
+package org.d3if3096.assessment.navigation
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.padding

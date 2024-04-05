@@ -3,13 +3,19 @@ package org.d3if3096.assessment.ui.theme.screen
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -22,6 +28,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -30,11 +38,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -46,6 +57,15 @@ import org.d3if3096.assessment.R
 import org.d3if3096.assessment.navigation.Screen
 import org.d3if3096.assessment.ui.theme.theme.AssessmentTheme
 
+sealed class Option(val text: String, val icon: Int) {
+    object Option1 : Option("Gaun", R.drawable.gaun)
+    object Option2 : Option("Kaos", R.drawable.kaos)
+    object Option3 : Option("Kemeja", R.drawable.kemeja)
+
+    companion object {
+        fun values(): List<Option> = listOf(Option1, Option2, Option3)
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -80,6 +100,7 @@ fun MainScreen(navController: NavHostController){
 
 @Composable
 fun ScreenContent(modifier: Modifier){
+    var selectedOption by rememberSaveable { mutableStateOf<Option?>(null) }
     var jumlah by rememberSaveable {
         mutableStateOf("")
     }
@@ -111,6 +132,37 @@ fun ScreenContent(modifier: Modifier){
             text = stringResource(id = R.string.penjelasan),
             modifier = Modifier.fillMaxWidth()
         )
+            Option.values().forEach { option: Option ->
+                Row(
+                    modifier = Modifier.selectable(
+                        selected = (selectedOption == option),
+                        onClick = { selectedOption = option }
+                    ),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        painter = painterResource(id = option.icon),
+                        contentDescription = option.text,
+                        modifier = Modifier.size(70.dp)
+                    )
+
+                    Spacer(modifier = Modifier.width(16.dp))
+
+                    Text(
+                        text = option.text,
+                        modifier = Modifier.weight(1f)
+                    )
+                    RadioButton(
+                        selected = (selectedOption == option),
+                        onClick = { selectedOption = option },
+                        colors = RadioButtonDefaults.colors(
+                            selectedColor = Color.Magenta,
+                            unselectedColor = Color.Gray
+                        )
+                    )
+                }
+
+        }
         OutlinedTextField(
             value = jumlah,
             onValueChange = { jumlah = it },

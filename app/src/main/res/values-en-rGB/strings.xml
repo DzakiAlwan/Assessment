@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Assessment</string>
+    <string name="penjelasan">Calculate the total for washing clothes in the laundry</string>
+    <string name="hitung">Count</string>
+    <string name="jumlah">Amount</string>
+    <string name="harga">Price</string>
+    <string name="total">Total : Rp %1$.2f</string>
+    <string name="input_invalid">Invalid</string>
+    <string name="info_app">Laundry Price Calculation Application</string>
+    <string name="bagikan">Share</string>
+    <string name="isi_bagikan">"Total : Rp %1$.2f "</string>
+    <string name="tentang_aplikasi">About Application</string>
+    <string name="copiright">This application was created for Assessment 1 MobPro 1. Copyright © 2024 Dzaki Alwan Firjatullah All rights reserved.</string>
+    <string name="kembali">" Back"</string>
+    <string name="options">Total : Rp %2$.2f</string>
+</resources>

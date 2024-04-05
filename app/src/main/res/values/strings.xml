@@ -4,11 +4,12 @@
     <string name="hitung">Hitung</string>
     <string name="jumlah">Jumlah</string>
     <string name="harga">Harga</string>
-    <string name="total">Total : %1$.2f</string>
+    <string name="total">Total : Rp %1$.2f</string>
+    <string name="options">Total : Rp %2$.2f</string>
     <string name="input_invalid">Invalid</string>
     <string name="info_app">Aplikasi Penghitung Harga Loundry</string>
      <string name="bagikan">Bagikan</string>
-    <string name="isi_bagikan">Total : %1$.2f cm </string>
+    <string name="isi_bagikan">Total : Rp %1$.2f</string>
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
     <string name="copiright">\nAplikasi ini dibuat untuk Assessment 1 MobPro 1.
         \n\nCopyright © 2024 Dzaki Alwan Firjatullah\nAll rights reserved.</string>
